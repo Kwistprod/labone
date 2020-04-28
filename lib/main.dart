@@ -11,8 +11,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      
       title: 'lab one',
       home: SplashScreen() 
     );
@@ -84,42 +82,21 @@ class MainApp extends StatelessWidget {
       body:
      ListView.builder(
       padding: const EdgeInsets.all(8),
-      itemCount: 1000001,
+      itemCount: 1000000,
       
-      itemBuilder:
-      (BuildContext context, int index){
-        if(index.isOdd){
+      itemBuilder: (BuildContext context, int index){
           return Container(
-            color: Colors.white,
+            color: index.isOdd ? Colors.white: Colors.grey,
             padding: const EdgeInsets.all(8.0),
             alignment: Alignment.center,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 const FlutterLogo(),
-                Text(Translater().fromIntToString(index), style: TextStyle(fontSize: 22),)
+                Text(Translater().fromIntToString(index), style: TextStyle(fontSize: 16),)
               ],
             )
           );
-        }
-        if(index == 0){
-          return null;
-        }
-        else {
-          return Container(
-            color: Colors.grey,
-            padding: const EdgeInsets.all(8.0),
-            alignment: Alignment.center,
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const FlutterLogo(),
-                  Text(Translater().fromIntToString(index), style: TextStyle(fontSize: 22),)
-                ],
-                
-              ),
-          );
-        }
       }
       )
     );
